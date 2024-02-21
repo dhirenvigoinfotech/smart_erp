@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:smart_erp/Authentication/login_screen.dart';
+import 'Authentication/login_screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -8,8 +8,12 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+        visualDensity: VisualDensity.adaptivePlatformDensity,
+      ),
       home: LoginPage(),
     );
   }
