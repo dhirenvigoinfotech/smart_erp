@@ -9,6 +9,7 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  bool isPasswordVisible = false;
 
   @override
   Widget build(BuildContext context) {
@@ -52,11 +53,21 @@ class _LoginPageState extends State<LoginPage> {
               const SizedBox(height: 20),
 
               TextFormField(
-                obscureText: true,
+                obscureText: !isPasswordVisible,
                 decoration: InputDecoration(
                     prefixIcon: const Icon(Icons.password) ,
                     border: OutlineInputBorder(borderRadius: BorderRadius.circular(12.0)),
-                    labelText:'Password'),
+                    labelText:'Password',
+                    suffixIcon: IconButton(
+                      icon: Icon(
+                        isPasswordVisible ? Icons.visibility : Icons.visibility_off,
+                      ), onPressed: () {
+                        setState(() {
+                        isPasswordVisible = !isPasswordVisible;
+                      });
+                    },
+                    )
+                ),
               ),
 
               const SizedBox(height: 20),
@@ -64,7 +75,7 @@ class _LoginPageState extends State<LoginPage> {
               ElevatedButton(
                 style: ButtonStyle(
                   backgroundColor: MaterialStateProperty.all(Colors.blue),
-                  fixedSize: MaterialStateProperty.all(Size(130, 50))
+                  fixedSize: MaterialStateProperty.all(const Size(130, 50))
                 ),
                 onPressed: () {
                   Navigator.push(context, MaterialPageRoute(builder: (context) =>  MainScreen()));
