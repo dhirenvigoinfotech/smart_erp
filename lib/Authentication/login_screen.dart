@@ -20,7 +20,9 @@ class _LoginPageState extends State<LoginPage> {
           child: Column(
             children: [
 
+
               const SizedBox(height: 40),
+
 
               Image.asset('images/login_image.jpeg',width: 200,height: 200,),
 
@@ -32,7 +34,9 @@ class _LoginPageState extends State<LoginPage> {
                 ),
               ),
 
+
               const SizedBox(height: 20),
+
 
               TextFormField(
                 decoration: InputDecoration(
@@ -41,7 +45,9 @@ class _LoginPageState extends State<LoginPage> {
                     labelText: 'Partner Code'),
               ),
 
+
               const SizedBox(height: 20),
+
 
               TextFormField(
                 decoration: InputDecoration(
@@ -50,7 +56,9 @@ class _LoginPageState extends State<LoginPage> {
                     labelText: 'User ID'),
               ),
 
+
               const SizedBox(height: 20),
+
 
               TextFormField(
                 obscureText: !isPasswordVisible,
@@ -70,7 +78,9 @@ class _LoginPageState extends State<LoginPage> {
                 ),
               ),
 
+
               const SizedBox(height: 20),
+
 
               ElevatedButton(
                 style: ButtonStyle(
