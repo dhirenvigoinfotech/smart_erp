@@ -1,5 +1,12 @@
 import 'package:flutter/material.dart';
-import '../Authentication/login_screen.dart';
+import 'package:smart_erp/Screens/field_reporting.dart';
+import 'package:smart_erp/Screens/help.dart';
+import 'package:smart_erp/Screens/mark_duty.dart';
+import 'package:smart_erp/Screens/recruitment.dart';
+import 'package:smart_erp/Screens/sales_management.dart';
+import 'package:smart_erp/Screens/settings.dart';
+import 'package:smart_erp/Screens/site_reporting.dart';
+import 'package:smart_erp/Screens/team_view.dart';
 
 
 class MainScreen extends StatefulWidget {
@@ -17,44 +24,33 @@ class _MainScreenState extends State<MainScreen> {
     'Sales Management',
     'Settings',
     'Help',
-    'Time',
-    'Date'
   ];
 
   List<void Function(BuildContext)> onTapActions = [
         (context) {
-      print('Mark Duty tapped');
-      Navigator.push(context, MaterialPageRoute(builder: (context) =>LoginPage()));
+      Navigator.push(context, MaterialPageRoute(builder: (context) => const MarkDuty()));
     },
         (context) {
-      print('Field Reporting tapped');
+      Navigator.push(context, MaterialPageRoute(builder: (context) => const FieldReporting()));
     },
         (context) {
-      print('Site Reporting tapped');
+      Navigator.push(context, MaterialPageRoute(builder: (context) => const SiteReporting()));
     },
         (context) {
-      print('TeamView tapped');
+      Navigator.push(context, MaterialPageRoute(builder: (context) => const TeamView()));
     },
         (context) {
-      print('Recruitment tapped');
+      Navigator.push(context, MaterialPageRoute(builder: (context) => const Recruitment()));
     },
         (context) {
-      print('Sales Management tapped');
+      Navigator.push(context, MaterialPageRoute(builder: (context) => const SalesManagement()));
     },
         (context) {
-      Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
-      print('Settings tapped');
+      Navigator.push(context, MaterialPageRoute(builder: (context) => const Settings()));
     },
         (context){
-      Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
-      print('Help Tapped');
+      Navigator.push(context, MaterialPageRoute(builder: (context) => const Help()));
     },
-        (context){
-      print('Time Tapped');
-        },
-        (context){
-      print('Date Tapped');
-        }
   ];
 
   @override
@@ -107,12 +103,8 @@ class _MainScreenState extends State<MainScreen> {
         return Icons.subdirectory_arrow_left_sharp;
       case 6:
         return Icons.settings;
-      case 7:
-        return Icons.help;
-      case 8:
-        return Icons.access_time;
       default:
-        return Icons.calendar_month;
+        return Icons.help;
     }
   }
 }
