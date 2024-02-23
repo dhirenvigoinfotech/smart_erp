@@ -66,23 +66,20 @@ class _MainScreenState extends State<MainScreen> {
             onTap: () {
               onTapActions[index](context);
             },
-            child: Container(
-              height: 75,
+            child: Card(
+              elevation: 5.0,
               margin: const EdgeInsets.all(8.0),
-              child: Material(
-                borderRadius: BorderRadius.circular(12.0),
-                elevation: 5.0,
-                child: ListTile(
-                  contentPadding: const EdgeInsets.fromLTRB(20, 10, 0, 0),
-                  title: Text(
-                    menuItems[index],
-                    style: const TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
-                  ),
-                  leading: Icon(getIconForItem(index)),
+              child: ListTile(
+                contentPadding: const EdgeInsets.symmetric(vertical: 11, horizontal: 20),
+                title: Text(
+                  menuItems[index],
+                  style: const TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
                 ),
+                leading: Icon(getIconForItem(index)),
               ),
             ),
-          );},
+          );
+        },
       ),
     );
   }

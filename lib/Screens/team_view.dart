@@ -167,25 +167,19 @@ class _TeamViewState extends State<TeamView> {
     return ListView.builder(
       itemCount: teamActivityItems.length,
       itemBuilder: (context, index) {
-        return GestureDetector(
-          onTap: () {
-            teamActivityActions[index](context);
-          },
-          child: Container(
-            height: 75,
-            margin: const EdgeInsets.all(8.0),
-            child: Material(
-              borderRadius: BorderRadius.circular(12.0),
-              elevation: 5.0,
-              child: ListTile(
-                contentPadding: const EdgeInsets.fromLTRB(20, 10, 0, 0),
-                title: Text(
-                  teamActivityItems[index],
-                  style: const TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
-                ),
-                leading: Icon(getIconForTeamActivityItem(index)),
-              ),
+        return Card(
+          elevation: 5.0,
+          margin: const EdgeInsets.all(8.0),
+          child: ListTile(
+            contentPadding: const EdgeInsets.symmetric(vertical: 14, horizontal: 20),
+            title: Text(
+              teamActivityItems[index],
+              style: const TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
             ),
+            leading: Icon(getIconForTeamActivityItem(index)),
+            onTap: () {
+              teamActivityActions[index](context);
+            },
           ),
         );
       },
