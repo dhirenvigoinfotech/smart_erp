@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:smart_erp/TeamView/Dashboard/attendence_list.dart';
+import 'package:smart_erp/TeamView/Dashboard/site_reporting.dart';
 import 'package:smart_erp/TeamView/map_view.dart';
 import 'package:smart_erp/TeamView/mark_duty.dart';
 import 'package:smart_erp/TeamView/recruitment.dart';
 import 'package:smart_erp/TeamView/sales_management.dart';
+import 'package:smart_erp/TeamView/site_reporting.dart';
 import 'package:smart_erp/TeamView/visitor_management.dart';
 
 import '../TeamView/field_reporting.dart';
@@ -51,82 +54,118 @@ class _TeamViewState extends State<TeamView> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          _buildTable('Attendance List', ['Total EMP', 'Present', 'Late', 'Absent'], [
-            [30, 20, 15, 35],
-          ],[Colors.blue]),
-          _buildTable('Field Reporting', ['Total EMP', 'Done', 'Not Done'], [
-            [40, 30, 30],
-            // Add more rows if needed
-          ],[Colors.red]),
-          _buildTable('Site Reporting', ['Total EMP', 'Done', 'Note Done'], [
-            [25, 45, 30],
-            // Add more rows if needed
-          ],[Colors.green]),
+          _buildTable(
+            'Attendance List',
+            ['Total EMP', 'Present', 'Late', 'Absent'],
+            [
+              [30, 20, 15, 35],
+            ],
+            [Colors.blue],
+                () {
+
+              Navigator.push(context, MaterialPageRoute(builder: (context) => const DashboardAttendenceList()));
+            },
+          ),
+          _buildTable(
+            'Field Reporting',
+            ['Total EMP', 'Done', 'Not Done'],
+            [
+              [40, 30, 30],
+              // Add more rows if needed
+            ],
+            [Colors.red],
+                () {
+              // Handle the onTap action for Field Reporting
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => const DashboardAttendenceList()));
+            },
+          ),
+          _buildTable(
+            'Site Reporting',
+            ['Total EMP', 'Done', 'Note Done'],
+            [
+              [25, 45, 30],
+              // Add more rows if needed
+            ],
+            [Colors.green],
+                () {
+              // Handle the onTap action for Site Reporting
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => const DashboardSiteReporting()));
+            },
+          ),
         ],
       ),
     );
   }
 
-  Widget _buildTable(String title, List<String> columnTitles, List<List<double>> data, List<Color> fontColors) {
+  Widget _buildTable(
+      String title,
+      List<String> columnTitles,
+      List<List<double>> data,
+      List<Color> fontColors,
+      VoidCallback onTap,
+      ) {
     return Card(
       elevation: 5,
       margin: const EdgeInsets.all(8),
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(12.0),
-        side: BorderSide(color: Colors.black, width: 1.0),
+        side: const BorderSide(color: Colors.black, width: 1.0),
       ),
-      child: Padding(
-        padding: const EdgeInsets.all(8),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              title,
-              style: const TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            const SizedBox(height: 8),
-            Table(
-              border: TableBorder.all(),
-              columnWidths: {
-                for (int i = 0; i < columnTitles.length; i++)
-                  i: const FlexColumnWidth(1), // Adjust column width as needed
-              },
-              children: [
-                TableRow(
-                  children: List.generate(
-                    columnTitles.length,
-                        (index) => TableCell(
-                      child: Padding(
-                        padding: const EdgeInsets.all(8),
-                        child: Text(
-                          columnTitles[index],
-                          style: const TextStyle(fontWeight: FontWeight.bold),
-                        ),
-                      ),
-                    ),
-                  ),
+      child: InkWell(
+        onTap: onTap,
+        child: Padding(
+          padding: const EdgeInsets.all(8),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                title,
+                style: const TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
                 ),
-                for (int i = 0; i < data.length; i++)
+              ),
+              const SizedBox(height: 8),
+              Table(
+                border: TableBorder.all(),
+                columnWidths: {
+                  for (int i = 0; i < columnTitles.length; i++)
+                    i: const FlexColumnWidth(1), // Adjust column width as needed
+                },
+                children: [
                   TableRow(
                     children: List.generate(
-                      data[i].length,
-                          (j) => TableCell(
+                      columnTitles.length,
+                          (index) => TableCell(
                         child: Padding(
                           padding: const EdgeInsets.all(8),
                           child: Text(
-                            data[i][j].toString(),
-                            style: TextStyle(color: fontColors[i]),
+                            columnTitles[index],
+                            style: const TextStyle(fontWeight: FontWeight.bold),
                           ),
                         ),
                       ),
                     ),
                   ),
-              ],
-            ),
-          ],
+                  for (int i = 0; i < data.length; i++)
+                    TableRow(
+                      children: List.generate(
+                        data[i].length,
+                            (j) => TableCell(
+                          child: Padding(
+                            padding: const EdgeInsets.all(8),
+                            child: Text(
+                              data[i][j].toString(),
+                              style: TextStyle(color: fontColors[i]),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                ],
+              ),
+            ],
+          ),
         ),
       ),
     );
@@ -193,7 +232,6 @@ class _TeamViewState extends State<TeamView> {
         );
       },
     );
-
   }
 
   IconData getIconForTeamActivityItem(int index) {

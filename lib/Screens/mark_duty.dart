@@ -28,8 +28,8 @@ class _MarkDutyState extends State<MarkDuty> {
           title: const Text('Mark Duty'),
           bottom: const TabBar(
             tabs: [
-              Tab(text: 'Punch'),
-              Tab(text: 'Punch History'),
+              Tab(text: 'PUNCH'),
+              Tab(text: 'PUNCH HISTORY'),
             ],
           ),
         ),
