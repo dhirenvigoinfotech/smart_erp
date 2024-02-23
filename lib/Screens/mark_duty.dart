@@ -43,8 +43,7 @@ class _MarkDutyState extends State<MarkDuty> {
                   _buildPunchHistoryTab(),
                 ],
               ),
-            ),
-          ],
+            ),],
         ),
       ),
     );
@@ -61,11 +60,17 @@ class _MarkDutyState extends State<MarkDuty> {
           ),
           child: Column(
             children: [
+
+
               const Text(
                 'Current Date and Time:',
                 style: TextStyle(fontSize: 18),
               ),
+
+
               const SizedBox(height: 10),
+
+
               Text(
                 '$currentDateTime / $currentTime',
                 style: const TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
@@ -73,6 +78,8 @@ class _MarkDutyState extends State<MarkDuty> {
             ],
           ),
         ),
+
+
         Expanded(
           child: Container(
             margin: const EdgeInsets.all(16),
@@ -82,9 +89,13 @@ class _MarkDutyState extends State<MarkDuty> {
             ),
           ),
         ),
+
+
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
+
+
             ElevatedButton.icon(
               icon: const Icon(Icons.input, color: Colors.white),
               style: ButtonStyle(
@@ -96,6 +107,8 @@ class _MarkDutyState extends State<MarkDuty> {
               },
               label: const Text('Punch In', style: TextStyle(color: Colors.white, fontSize: 18)),
             ),
+
+
             ElevatedButton.icon(
               icon: const Icon(Icons.output, color: Colors.white),
               style: ButtonStyle(
@@ -107,9 +120,15 @@ class _MarkDutyState extends State<MarkDuty> {
               },
               label: const Text('Punch Out', style: TextStyle(color: Colors.white, fontSize: 18)),
             ),
+
+
           ],
         ),
+
+
         const SizedBox(height: 10),
+
+
         ElevatedButton.icon(
           style: ButtonStyle(
             backgroundColor: MaterialStateProperty.all(Colors.blue),
@@ -121,7 +140,11 @@ class _MarkDutyState extends State<MarkDuty> {
           icon: const Icon(Icons.leave_bags_at_home, color: Colors.white),
           label: const Text('Leave', style: TextStyle(color: Colors.white, fontSize: 20)),
         ),
+
+
         const SizedBox(height: 10),
+
+
         ElevatedButton.icon(
           style: ButtonStyle(
             backgroundColor: MaterialStateProperty.all(Colors.orange),
@@ -133,6 +156,8 @@ class _MarkDutyState extends State<MarkDuty> {
           icon: const Icon(Icons.next_week_outlined, color: Colors.white),
           label: const Text('Week Off', style: TextStyle(color: Colors.white, fontSize: 20)),
         ),
+
+
         const SizedBox(height: 20),
       ],
     );

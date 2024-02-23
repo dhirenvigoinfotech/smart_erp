@@ -38,7 +38,8 @@ dependencies:
   firebase_auth: ^4.0.0
   firebase_core: ^2.25.4
   intl: ^0.17.0
-
+  local_auth: ^2.1.5
+  fl_chart: ^0.40.0
 
 
 dev_dependencies:
