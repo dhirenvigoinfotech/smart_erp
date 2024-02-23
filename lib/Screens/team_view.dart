@@ -71,6 +71,10 @@ class _TeamViewState extends State<TeamView> {
     return Card(
       elevation: 5,
       margin: const EdgeInsets.all(8),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(12.0),
+        side: BorderSide(color: Colors.black, width: 1.0),
+      ),
       child: Padding(
         padding: const EdgeInsets.all(8),
         child: Column(
@@ -129,6 +133,7 @@ class _TeamViewState extends State<TeamView> {
   }
 
 
+
   Widget _teamActivityTab() {
     List<String> teamActivityItems = [
       'Mark Duty',
@@ -170,6 +175,10 @@ class _TeamViewState extends State<TeamView> {
         return Card(
           elevation: 5.0,
           margin: const EdgeInsets.all(8.0),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(12.0),
+            side: const BorderSide(color: Colors.black, width: 1.0),
+          ),
           child: ListTile(
             contentPadding: const EdgeInsets.symmetric(vertical: 14, horizontal: 20),
             title: Text(
@@ -184,6 +193,7 @@ class _TeamViewState extends State<TeamView> {
         );
       },
     );
+
   }
 
   IconData getIconForTeamActivityItem(int index) {

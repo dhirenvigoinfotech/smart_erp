@@ -69,6 +69,10 @@ class _MainScreenState extends State<MainScreen> {
             child: Card(
               elevation: 5.0,
               margin: const EdgeInsets.all(8.0),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(12.0),
+                side: const BorderSide(color: Colors.black, width: 1.0),
+              ),
               child: ListTile(
                 contentPadding: const EdgeInsets.symmetric(vertical: 11, horizontal: 20),
                 title: Text(
@@ -83,6 +87,7 @@ class _MainScreenState extends State<MainScreen> {
       ),
     );
   }
+
 
   IconData getIconForItem(int index) {
     switch (index) {
