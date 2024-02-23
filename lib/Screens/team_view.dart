@@ -5,7 +5,6 @@ import 'package:smart_erp/TeamView/map_view.dart';
 import 'package:smart_erp/TeamView/mark_duty.dart';
 import 'package:smart_erp/TeamView/recruitment.dart';
 import 'package:smart_erp/TeamView/sales_management.dart';
-import 'package:smart_erp/TeamView/site_reporting.dart';
 import 'package:smart_erp/TeamView/visitor_management.dart';
 
 import '../TeamView/field_reporting.dart';
